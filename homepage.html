@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhotoCraft Studio - Professional Photo Processing Made Simple</title>
+    <meta name="description" content="AI-powered document and photo processing platform. Transform Aadhaar documents and enhance portraits with professional quality results." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fphotocraft5589back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background font-inter">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-primary sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <rect x="4" y="8" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="20" r="6" fill="currentColor"/>
+                            <path d="M12 28l4-4 4 4 8-8 4 4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-primary">PhotoCraft Studio</h1>
+                        <p class="text-xs text-text-secondary">Professional Processing</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage.html" class="text-primary font-semibold px-3 py-2 rounded-md text-sm">Home</a>
+                        <a href="aadhaar_processing_center.html" class="text-text-secondary hover:text-primary transition-smooth px-3 py-2 rounded-md text-sm">Aadhaar Processing</a>
+                        <a href="photo_studio_suite.html" class="text-text-secondary hover:text-primary transition-smooth px-3 py-2 rounded-md text-sm">Photo Studio</a>
+                        <button class="btn-primary text-sm py-2 px-4">Get Started</button>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="homepage.html" class="text-primary font-semibold block px-3 py-2 rounded-md text-base">Home</a>
+                <a href="aadhaar_processing_center.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Aadhaar Processing</a>
+                <a href="photo_studio_suite.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Photo Studio</a>
+                <button class="btn-primary w-full mt-2 text-sm py-2">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Split Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-50 to-secondary-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <!-- Main Headline -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-bold text-primary mb-6 leading-tight">
+                    Professional Quality,<br />
+                    <span class="text-secondary">Simplified Process</span>
+                </h1>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+                    Transform your documents and photos with AI-powered precision. Government compliance guaranteed, creative enhancement perfected.
+                </p>
+            </div>
+
+            <!-- Split Hero Content -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left Side - Aadhaar Processing -->
+                <div class="bg-white rounded-xl shadow-processing p-8 transform hover:scale-105 transition-smooth">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Aadhaar Document Processing</h3>
+                        <p class="text-text-secondary">Intelligent cropping and compliance verification</p>
+                    </div>
+                    
+                    <!-- Before/After Preview -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center">
+                            <p class="text-sm font-medium text-text-secondary mb-2">Before</p>
+                            <div class="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Original document" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm font-medium text-success mb-2">After</p>
+                            <div class="aspect-[3/4] bg-success-50 rounded-lg overflow-hidden border-2 border-success-100">
+                                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Processed document" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="aadhaar_processing_center.html" class="btn-primary w-full text-center block">
+                        Process Aadhaar Document
+                    </a>
+                </div>
+
+                <!-- Right Side - Portrait Enhancement -->
+                <div class="bg-white rounded-xl shadow-processing p-8 transform hover:scale-105 transition-smooth">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-secondary-100 rounded-full mb-4">
+                            <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m15.5-6.5l-4.24 4.24m-6.36 0L1.66 5.66m16.68 12.68l-4.24-4.24m-6.36 0L1.66 18.34"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary mb-2">Portrait Enhancement</h3>
+                        <p class="text-text-secondary">Background replacement and professional styling</p>
+                    </div>
+                    
+                    <!-- Before/After Preview -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center">
+                            <p class="text-sm font-medium text-text-secondary mb-2">Before</p>
+                            <div class="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Original portrait" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm font-medium text-accent mb-2">Enhanced</p>
+                            <div class="aspect-[3/4] bg-accent-50 rounded-lg overflow-hidden border-2 border-accent-100">
+                                <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Enhanced portrait" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="photo_studio_suite.html" class="btn-secondary w-full text-center block">
+                        Enhance Portrait Photos
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    See AI Processing in Action
+                </h2>
+                <p class="text-xl text-text-secondary">
+                    Upload a sample image and experience real-time AI capabilities
+                </p>
+            </div>
+
+            <!-- Upload Demo Interface -->
+            <div class="bg-surface rounded-xl p-8 border-2 border-dashed border-gray-300 hover:border-secondary transition-smooth">
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-secondary-100 rounded-full mb-6">
+                        <svg class="w-10 h-10 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-primary mb-2">Try Our AI Processing</h3>
+                    <p class="text-text-secondary mb-6">Drag and drop an image or click to browse</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="btn-primary">
+                            <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            Upload Image
+                        </button>
+                        <button class="btn-secondary">
+                            <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Use Camera
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    Why Choose PhotoCraft Studio?
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Advanced AI technology meets professional standards for unmatched results
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-primary text-center transform hover:scale-105 transition-smooth">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-success-100 rounded-full mb-6">
+                        <svg class="w-8 h-8 text-success" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Government Compliance Guaranteed</h3>
+                    <p class="text-text-secondary mb-6">
+                        100% compliance with official document standards. Accepted by government agencies and institutions worldwide.
+                    </p>
+                    <div class="bg-success-50 rounded-lg p-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <div class="w-3 h-3 bg-success rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-success">Auto-detecting compliance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-primary text-center transform hover:scale-105 transition-smooth">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-secondary-100 rounded-full mb-6">
+                        <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">AI-Powered Precision</h3>
+                    <p class="text-text-secondary mb-6">
+                        Advanced machine learning algorithms detect, crop, and enhance with pixel-perfect accuracy.
+                    </p>
+                    <div class="bg-secondary-50 rounded-lg p-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <div class="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-secondary">Processing with AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-primary text-center transform hover:scale-105 transition-smooth">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-100 rounded-full mb-6">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Instant Professional Results</h3>
+                    <p class="text-text-secondary mb-6">
+                        Get studio-quality results in seconds. No technical expertise required, just upload and download.
+                    </p>
+                    <div class="bg-accent-50 rounded-lg p-4">
+                        <div class="flex items-center justify-center space-x-2">
+                            <div class="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-accent">Ready in seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processing Statistics -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Trusted by Thousands</h2>
+                <p class="text-xl text-primary-100">Real-time processing statistics</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-primary-800 rounded-xl p-8">
+                    <div class="text-4xl md:text-5xl font-bold text-secondary mb-2" id="documents-processed">2,847,392</div>
+                    <p class="text-primary-100 text-lg">Documents Processed</p>
+                    <div class="mt-4 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-secondary rounded-full animate-pulse mr-2"></div>
+                        <span class="text-sm text-primary-200">+1,247 today</span>
+                    </div>
+                </div>
+
+                <div class="bg-primary-800 rounded-xl p-8">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">99.7%</div>
+                    <p class="text-primary-100 text-lg">Success Rate</p>
+                    <div class="mt-4 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-accent rounded-full animate-pulse mr-2"></div>
+                        <span class="text-sm text-primary-200">Government approved</span>
+                    </div>
+                </div>
+
+                <div class="bg-primary-800 rounded-xl p-8">
+                    <div class="text-4xl md:text-5xl font-bold text-success mb-2">4.9/5</div>
+                    <p class="text-primary-100 text-lg">User Satisfaction</p>
+                    <div class="mt-4 flex items-center justify-center">
+                        <div class="flex space-x-1">
+                            <svg class="w-4 h-4 text-success fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-success fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-success fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-success fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <svg class="w-4 h-4 text-success fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm text-primary-200 ml-2">Based on 45K+ reviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Gallery -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                    Real Results from Real Users
+                </h2>
+                <p class="text-xl text-text-secondary">
+                    See the transformation power of our AI processing
+                </p>
+            </div>
+
+            <!-- Document Processing Gallery -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-primary mb-8 text-center">Document Processing Success Stories</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-surface rounded-xl p-6">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="text-sm font-medium text-text-secondary mb-2">Original</p>
+                                <div class="aspect-[3/4] bg-gray-200 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Original document" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-success mb-2">Processed</p>
+                                <div class="aspect-[3/4] bg-success-50 rounded-lg overflow-hidden border-2 border-success-100">
+                                    <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Processed document" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Aadhaar Processing</span>
+                            <div class="flex items-center text-success">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="text-sm font-medium">Approved</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface rounded-xl p-6">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="text-sm font-medium text-text-secondary mb-2">Original</p>
+                                <div class="aspect-[3/4] bg-gray-200 rounded-lg overflow-hidden">
+                                    <img src="https://images.pixabay.com/photo/2017/07/10/23/49/club-2492011_1280.jpg" alt="Original document" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-success mb-2">Processed</p>
+                                <div class="aspect-[3/4] bg-success-50 rounded-lg overflow-hidden border-2 border-success-100">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Processed document" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Passport Photo</span>
+                            <div class="flex items-center text-success">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="text-sm font-medium">Accepted</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface rounded-xl p-6">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="text-sm font-medium text-text-secondary mb-2">Original</p>
+                                <div class="aspect-[3/4] bg-gray-200 rounded-lg overflow-hidden">
+                                    <img src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Original portrait" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-accent mb-2">Enhanced</p>
+                                <div class="aspect-[3/4] bg-accent-50 rounded-lg overflow-hidden border-2 border-accent-100">
+                                    <img src="https://images.pixabay.com/photo/2016/11/29/13/14/attractive-1868815_1280.jpg" alt="Enhanced portrait" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Professional Portrait</span>
+                            <div class="flex items-center text-accent">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span class="text-sm font-medium">Enhanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center">
+                <div class="bg-gradient-to-r from-primary to-secondary rounded-xl p-8 text-white">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Photos?</h3>
+                    <p class="text-xl mb-8 text-primary-100">Join thousands of satisfied users and experience professional quality processing</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="aadhaar_processing_center.html" class="bg-white text-primary font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-smooth">
+                            Process Documents
+                        </a>
+                        <a href="photo_studio_suite.html" class="bg-accent text-white font-semibold py-3 px-8 rounded-lg hover:bg-accent-500 transition-smooth">
+                            Enhance Photos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-10 w-10 text-secondary" viewBox="0 0 40 40" fill="currentColor">
+                            <rect x="4" y="8" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="20" r="6" fill="currentColor"/>
+                            <path d="M12 28l4-4 4 4 8-8 4 4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <div class="ml-3">
+                            <h3 class="text-xl font-bold">PhotoCraft Studio</h3>
+                            <p class="text-primary-200 text-sm">Professional Processing</p>
+                        </div>
+                    </div>
+                    <p class="text-primary-100 mb-6 max-w-md">
+                        Democratizing professional photo editing and document processing through intelligent automation. Quality and compliance guaranteed.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-primary-200 hover:text-white transition-smooth">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-primary-200 hover:text-white transition-smooth">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-primary-200 hover:text-white transition-smooth">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="homepage.html" class="text-primary-200 hover:text-white transition-smooth">Home</a></li>
+                        <li><a href="aadhaar_processing_center.html" class="text-primary-200 hover:text-white transition-smooth">Aadhaar Processing</a></li>
+                        <li><a href="photo_studio_suite.html" class="text-primary-200 hover:text-white transition-smooth">Photo Studio</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition-smooth">Help Center</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-primary-200 hover:text-white transition-smooth">Documentation</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition-smooth">Tutorials</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition-smooth">Privacy Policy</a></li>
+                        <li><a href="#" class="text-primary-200 hover:text-white transition-smooth">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-700 mt-12 pt-8 text-center">
+                <p class="text-primary-200">
+                    © 2025 PhotoCraft Studio. All Rights Reserved. | Professional photo processing with AI precision.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Animate counter numbers
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 20);
+        }
+
+        // Initialize counters when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const documentsElement = document.getElementById('documents-processed');
+            if (documentsElement) {
+                animateCounter(documentsElement, 2847392);
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
