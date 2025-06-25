@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aadhaar Processing Center - PhotoCraft Studio</title>
+    <meta name="description" content="Professional Aadhaar document processing with AI-powered cropping and compliance verification. Government-approved quality guaranteed." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fphotocraft5589back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background font-inter" data-theme="light">
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle" onclick="toggleDarkMode()">
+        <svg id="darkModeIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+        </svg>
+        <svg id="lightModeIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+    </button>
+
+    <script>
+        // Dark mode functionality
+        function toggleDarkMode() {
+            const body = document.body;
+            const darkModeIcon = document.getElementById('darkModeIcon');
+            const lightModeIcon = document.getElementById('lightModeIcon');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.setAttribute('data-theme', 'light');
+                darkModeIcon.classList.remove('hidden');
+                lightModeIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                darkModeIcon.classList.add('hidden');
+                lightModeIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const body = document.body;
+            const darkModeIcon = document.getElementById('darkModeIcon');
+            const lightModeIcon = document.getElementById('lightModeIcon');
+            
+            body.setAttribute('data-theme', savedTheme);
+            
+            if (savedTheme === 'dark') {
+                darkModeIcon.classList.add('hidden');
+                lightModeIcon.classList.remove('hidden');
+            } else {
+                darkModeIcon.classList.remove('hidden');
+                lightModeIcon.classList.add('hidden');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Enhanced file upload handling with better error handling
+        function triggerFileUpload() {
+            document.getElementById('file-input').click();
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // Validate file type and size
+                const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+                const maxSize = 10 * 1024 * 1024; // 10MB
+                
+                if (!validTypes.includes(file.type)) {
+                    alert('Please upload a valid image file (JPG, PNG, WEBP) or PDF.');
+                    return;
+                }
+                
+                if (file.size > maxSize) {
+                    alert('File size must be less than 10MB.');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        // Show processing interface
+                        document.getElementById('upload-section').classList.add('hidden');
+                        document.getElementById('processing-section').classList.remove('hidden');
+                        
+                        // Update step indicator
+                        updateStepIndicator(2);
+                        
+                        // Display images with error handling
+                        const originalImage = document.getElementById('original-image');
+                        const processedImage = document.getElementById('processed-image');
+                        
+                        originalImage.src = e.target.result;
+                        processedImage.src = e.target.result;
+                        
+                        // Show AI detection overlay after a delay
+                        setTimeout(() => {
+                            document.getElementById('detection-overlay').classList.remove('hidden');
+                            updateStepIndicator(3);
+                            
+                            // Simulate processing completion
+                            showProcessingSuccess();
+                        }, 1500);
+                    } catch (error) {
+                        console.error('Error processing file:', error);
+                        alert('Error processing file. Please try again.');
+                        processAnother();
+                    }
+                };
+                reader.onerror = function() {
+                    alert('Error reading file. Please try again.');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function showProcessingSuccess() {
+            // Add success animation
+            const processedContainer = document.getElementById('processed-image').parentElement;
+            processedContainer.classList.add('animate-pulse');
+            
+            setTimeout(() => {
+                processedContainer.classList.remove('animate-pulse');
+                
+                // Show completion notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 bg-success text-white px-6 py-3 rounded-lg shadow-lg z-50';
+                notification.innerHTML = '✓ Document processed successfully!';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }, 2000);
+        }
+
+        function updateStepIndicator(step) {
+            // Enhanced step indicator with better visual feedback
+            const steps = document.querySelectorAll('.flex.items-center');
+            
+            steps.forEach((stepElement, index) => {
+                const stepNumber = index + 1;
+                const circle = stepElement.querySelector('.w-8');
+                const text = stepElement.querySelector('span');
+                
+                if (stepNumber <= step) {
+                    circle.classList.remove('bg-gray-200', 'text-gray-500');
+                    circle.classList.add('bg-primary', 'text-white');
+                    text.classList.remove('text-gray-500');
+                    text.classList.add('text-primary', 'font-semibold');
+                    
+                    // Add completion animation
+                    if (stepNumber === step) {
+                        circle.classList.add('animate-pulse');
+                        setTimeout(() => circle.classList.remove('animate-pulse'), 1000);
+                    }
+                } else {
+                    circle.classList.add('bg-gray-200', 'text-gray-500');
+                    circle.classList.remove('bg-primary', 'text-white');
+                    text.classList.add('text-gray-500');
+                    text.classList.remove('text-primary', 'font-semibold');
+                }
+            });
+        }
+
+        function openCamera() {
+            // Enhanced camera functionality with better user feedback
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function(stream) {
+                        // Camera access granted - implement camera interface
+                        alert('Camera functionality will be implemented here. For now, please use file upload.');
+                        // Stop the stream
+                        stream.getTracks().forEach(track => track.stop());
+                    })
+                    .catch(function(error) {
+                        console.error('Camera access denied:', error);
+                        alert('Camera access denied. Please use file upload instead.');
+                    });
+            } else {
+                alert('Camera not supported on this device. Please use file upload.');
+            }
+        }
+
+        function rotateImage() {
+            // Enhanced image rotation with visual feedback
+            const originalImage = document.getElementById('original-image');
+            const processedImage = document.getElementById('processed-image');
+            
+            if (originalImage.src) {
+                showProcessingOverlay();
+                
+                // Simulate rotation processing
+                setTimeout(() => {
+                    hideProcessingOverlay();
+                    showNotification('Image rotated successfully!', 'success');
+                }, 1000);
+            } else {
+                alert('Please upload an image first.');
+            }
+        }
+
+        function adjustCrop() {
+            // Enhanced crop adjustment
+            const originalImage = document.getElementById('original-image');
+            
+            if (originalImage.src) {
+                showProcessingOverlay();
+                
+                setTimeout(() => {
+                    hideProcessingOverlay();
+                    showNotification('Crop adjusted successfully!', 'success');
+                }, 1500);
+            } else {
+                alert('Please upload an image first.');
+            }
+        }
+
+        function enhanceQuality() {
+            // Enhanced quality enhancement
+            const originalImage = document.getElementById('original-image');
+            
+            if (originalImage.src) {
+                showProcessingOverlay();
+                
+                setTimeout(() => {
+                    hideProcessingOverlay();
+                    showNotification('Quality enhanced successfully!', 'success');
+                }, 2000);
+            } else {
+                alert('Please upload an image first.');
+            }
+        }
+
+        function showProcessingOverlay() {
+            const overlay = document.createElement('div');
+            overlay.id = 'processing-overlay-temp';
+            overlay.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            overlay.innerHTML = `
+                <div class="bg-white rounded-lg p-6 text-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+                    <p class="text-lg font-medium text-primary">Processing...</p>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+        }
+
+        function hideProcessingOverlay() {
+            const overlay = document.getElementById('processing-overlay-temp');
+            if (overlay) {
+                overlay.remove();
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            const bgColor = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-error' : 'bg-primary';
+            
+            notification.className = `fixed top-4 right-4 ${bgColor} text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300`;
+            notification.innerHTML = message;
+            document.body.appendChild(notification);
+            
+            // Slide in animation
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Remove after delay
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function downloadDocument() {
+            const processedImage = document.getElementById('processed-image');
+            
+            if (processedImage.src) {
+                showNotification('Download started!', 'success');
+                
+                // Create download link
+                const link = document.createElement('a');
+                link.href = processedImage.src;
+                link.download = 'processed-document.jpg';
+                link.click();
+            } else {
+                alert('No processed document available for download.');
+            }
+        }
+
+        function emailDocument() {
+            const processedImage = document.getElementById('processed-image');
+            
+            if (processedImage.src) {
+                const email = prompt('Enter email address:');
+                if (email && email.includes('@')) {
+                    showNotification(`Document will be sent to ${email}`, 'success');
+                    // Implement actual email functionality here
+                } else if (email) {
+                    alert('Please enter a valid email address.');
+                }
+            } else {
+                alert('No processed document available to email.');
+            }
+        }
+
+        function processAnother() {
+            // Enhanced reset functionality
+            document.getElementById('processing-section').classList.add('hidden');
+            document.getElementById('upload-section').classList.remove('hidden');
+            document.getElementById('detection-overlay').classList.add('hidden');
+            updateStepIndicator(1);
+            
+            // Clear file input
+            document.getElementById('file-input').value = '';
+            
+            // Clear images
+            document.getElementById('original-image').src = '';
+            document.getElementById('processed-image').src = '';
+            
+            showNotification('Ready for new document!', 'info');
+        }
+
+        // Enhanced drag and drop functionality
+        const uploadSection = document.getElementById('upload-section');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropZone = uploadSection.querySelector('.border-dashed');
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, unhighlight, false);
+            });
+
+            function highlight(e) {
+                dropZone.classList.add('border-secondary-500', 'bg-secondary-100', 'scale-105');
+            }
+
+            function unhighlight(e) {
+                dropZone.classList.remove('border-secondary-500', 'bg-secondary-100', 'scale-105');
+            }
+
+            dropZone.addEventListener('drop', handleDrop, false);
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+
+                if (files.length > 0) {
+                    const file = files[0];
+                    const event = { target: { files: [file] } };
+                    handleFileUpload(event);
+                }
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
